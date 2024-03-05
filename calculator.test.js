@@ -1,37 +1,79 @@
 const calculator = require("./calculator");
 
-test("Die Summe von 12 - 5 ist 7", () => {
-  const result = calculator.resta(12, 5);
+describe("Calculator Tests", () => {
+  describe("Resta function", () => {
+    test("should subtract two positive numbers correctly", () => {
+      // Arrange
+      const a = 12;
+      const b = 5;
 
-  expect(result).toEqual(7);
-});
+      // Act
+      const result = calculator.resta(a, b);
 
-test("Die Summe von -12 - (-12) ist 0", () => {
-  const result = calculator.resta(-12, -12);
+      // Assert
+      expect(result).toEqual(7);
+    });
 
-  expect(result).toEqual(0);
-});
+    test("should subtract two negative numbers correctly", () => {
+      // Arrange
+      const a = -12;
+      const b = -12;
 
-test("Die Summe von 0 - (-10) ist 10", () => {
-  const result = calculator.resta(0, -10);
+      // Act
+      const result = calculator.resta(a, b);
 
-  expect(result).toEqual(10);
-});
+      // Assert
+      expect(result).toEqual(0);
+    });
 
-test("Multiplicar 2 * 5 es igual a 10", () => {
-  const result = calculator.multiplica(2, 5);
+    test("should subtract a negative number from zero correctly", () => {
+      // Arrange
+      const a = 0;
+      const b = -10;
 
-  expect(result).toEqual(10);
-});
+      // Act
+      const result = calculator.resta(a, b);
 
-test("Multiplicar -2 * 5 es igual a -10", () => {
-  const result = calculator.multiplica(-2, 5);
+      // Assert
+      expect(result).toEqual(10);
+    });
+  });
 
-  expect(result).toEqual(-10);
-});
+  describe("Multiplica function", () => {
+    test("should multiply two positive numbers correctly", () => {
+      // Arrange
+      const a = 2;
+      const b = 5;
 
-test("Multiplicar 3 * 0 es igual a 10", () => {
-  const result = calculator.multiplica(3, 0);
+      // Act
+      const result = calculator.multiplica(a, b);
 
-  expect(result).toEqual(0);
+      // Assert
+      expect(result).toEqual(10);
+    });
+
+    test("should multiply a negative number with a positive number correctly", () => {
+      // Arrange
+      const a = -2;
+      const b = 5;
+
+      // Act
+      const result = calculator.multiplica(a, b);
+
+      // Assert
+      expect(result).toEqual(-10);
+    });
+
+    test("should multiply any number with zero correctly", () => {
+      // Arrange
+      const a = 3;
+      const b = 0;
+
+      // Act
+      const result = calculator.multiplica(a, b);
+
+      // Assert
+      expect(result).toEqual(0);
+    });
+  });
 });
